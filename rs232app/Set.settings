@@ -21,7 +21,16 @@
       <Value Profile="(Default)">8</Value>
     </Setting>
     <Setting Name="StopSymbol" Type="rs232app.AppEnum.StopSymbol" Scope="User">
-      <Value Profile="(Default)">NONE</Value>
+      <Value Profile="(Default)">None</Value>
+    </Setting>
+    <Setting Name="PingTimeout" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="PingRequestMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PingResponseMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

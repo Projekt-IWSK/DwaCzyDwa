@@ -97,13 +97,49 @@ namespace rs232app {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NONE")]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
         public global::rs232app.AppEnum.StopSymbol StopSymbol {
             get {
                 return ((global::rs232app.AppEnum.StopSymbol)(this["StopSymbol"]));
             }
             set {
                 this["StopSymbol"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int PingTimeout {
+            get {
+                return ((int)(this["PingTimeout"]));
+            }
+            set {
+                this["PingTimeout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PingRequestMessage {
+            get {
+                return ((string)(this["PingRequestMessage"]));
+            }
+            set {
+                this["PingRequestMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PingResponseMessage {
+            get {
+                return ((string)(this["PingResponseMessage"]));
+            }
+            set {
+                this["PingResponseMessage"] = value;
             }
         }
     }

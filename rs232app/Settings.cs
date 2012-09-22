@@ -75,6 +75,7 @@ namespace rs232app
             Set.Default.StopBits = (StopBits)Enum.Parse(typeof(StopBits), inputStopBits.SelectedItem.ToString());
             Set.Default.DataSpeed = Convert.ToInt32(inputDataSpeed.Text);
             Set.Default.NumberOfDataBits = Convert.ToInt32(inputNumberOfDataBits.Text);
+            Set.Default.StopSymbol = (StopSymbol)Enum.Parse(typeof(StopSymbol), inputStopSymbol.SelectedItem.ToString());
             Set.Default.Save();
         }
         #endregion
