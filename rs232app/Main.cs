@@ -11,6 +11,9 @@ using rs232app.AppEnum;
 
 namespace rs232app
 {
+    //TODO: _usedPort.WriteTimeout = 100;
+    //TODO: _usedPort.ReadTimeout = 100;
+
     public partial class Main : Form
     {
         private SerialPort _usedPort;
@@ -48,13 +51,16 @@ namespace rs232app
         private void inputSend_Click(object sender, EventArgs e)
         {
             String message = inputToSendData.Text;
+
+            //Adding Stop symbol to the message
+            //TODO: _usedPort.NewLine
             byte[] endSymbols = BitConverter.GetBytes((int)Enum.Parse(typeof(StopSymbol), Enum.GetName(typeof(StopSymbol), Set.Default.StopSymbol)));
             for (int i = endSymbols.Length - 1; i >= 0; i--)
             {
                 if (endSymbols[i] != 0)
                     message += (char)endSymbols[i];
-            }
-            _usedPort.Write(inputToSendData.Text);
+            }             
+            _usedPort.Write(message);
             //TODO: add notification for user that data was sent(in output box)
         }
         #endregion
