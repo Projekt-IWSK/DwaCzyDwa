@@ -19,7 +19,9 @@ namespace rs232app
             InitializeComponent();
             _usedPort = new SerialPort();
             new Settings(this).ShowDialog(this);
-        }
+
+			_usedPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);		
+		}
 
         #region User Interface Events
         private void menuOptions_Click(object sender, EventArgs e)
@@ -39,8 +41,15 @@ namespace rs232app
         }
         #endregion
 
-        #region Notifications
-        public void NotifySettingsChanged()
+		#region RS232 events
+		private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+		{
+			throw new NotImplementedException();
+		}
+		#endregion
+
+		#region Notifications
+		public void NotifySettingsChanged()
         {
             _usedPort.PortName = Set.Default.PortName;
             _usedPort.Parity = Set.Default.Parity;

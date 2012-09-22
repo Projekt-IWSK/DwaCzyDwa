@@ -94,5 +94,17 @@ namespace rs232app {
                 this["NumberOfDataBits"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NONE")]
+        public global::rs232app.AppEnum.StopSymbol StopSymbol {
+            get {
+                return ((global::rs232app.AppEnum.StopSymbol)(this["StopSymbol"]));
+            }
+            set {
+                this["StopSymbol"] = value;
+            }
+        }
     }
 }

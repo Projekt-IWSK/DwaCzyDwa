@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
+using rs232app.AppEnum;
 
 namespace rs232app
 {
@@ -38,6 +39,10 @@ namespace rs232app
             foreach (string s in Enum.GetNames(typeof(StopBits)))
                 inputStopBits.Items.Add(s);
             inputStopBits.SelectedItem = Enum.GetName(typeof(StopBits), Set.Default.StopBits);
+
+			foreach (string s in Enum.GetNames(typeof(StopSymbol)))
+				inputStopSymbol.Items.Add(s);
+			inputStopSymbol.SelectedItem = Enum.GetName(typeof(StopSymbol), Set.Default.StopSymbol);
 
             //Initialize textboxes
             inputDataSpeed.Text = Set.Default.DataSpeed.ToString();

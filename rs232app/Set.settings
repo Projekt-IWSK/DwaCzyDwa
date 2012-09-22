@@ -20,5 +20,8 @@
     <Setting Name="NumberOfDataBits" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">8</Value>
     </Setting>
+    <Setting Name="StopSymbol" Type="rs232app.AppEnum.StopSymbol" Scope="User">
+      <Value Profile="(Default)">NONE</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
