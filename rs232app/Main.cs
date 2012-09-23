@@ -148,6 +148,11 @@ namespace rs232app
 			else
 			{
 				NotifyMessageReceive(indata);
+				if (Set.Default.EchoEnabled)
+				{
+					SendMessage(indata);
+					NotifyMessageSend(indata);
+				}
 			}
 		}
 		#endregion

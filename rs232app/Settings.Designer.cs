@@ -46,6 +46,8 @@
 			this.inputNumberOfDataBits = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.pongTimeoutInput = new System.Windows.Forms.NumericUpDown();
+			this.echoEnabledInput = new System.Windows.Forms.CheckBox();
+			this.label9 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pongTimeoutInput)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -79,7 +81,7 @@
 			// 
 			// actSave
 			// 
-			this.actSave.Location = new System.Drawing.Point(12, 238);
+			this.actSave.Location = new System.Drawing.Point(15, 242);
 			this.actSave.Name = "actSave";
 			this.actSave.Size = new System.Drawing.Size(75, 23);
 			this.actSave.TabIndex = 11;
@@ -89,7 +91,7 @@
 			// 
 			// actCancel
 			// 
-			this.actCancel.Location = new System.Drawing.Point(199, 239);
+			this.actCancel.Location = new System.Drawing.Point(202, 243);
 			this.actCancel.Name = "actCancel";
 			this.actCancel.Size = new System.Drawing.Size(75, 22);
 			this.actCancel.TabIndex = 12;
@@ -247,11 +249,31 @@
             0,
             0});
 			// 
+			// echoEnabledInput
+			// 
+			this.echoEnabledInput.AutoSize = true;
+			this.echoEnabledInput.Location = new System.Drawing.Point(152, 225);
+			this.echoEnabledInput.Name = "echoEnabledInput";
+			this.echoEnabledInput.Size = new System.Drawing.Size(15, 14);
+			this.echoEnabledInput.TabIndex = 28;
+			this.echoEnabledInput.UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(12, 226);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(35, 13);
+			this.label9.TabIndex = 29;
+			this.label9.Text = "Echo:";
+			// 
 			// Settings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(286, 273);
+			this.ClientSize = new System.Drawing.Size(286, 275);
+			this.Controls.Add(this.label9);
+			this.Controls.Add(this.echoEnabledInput);
 			this.Controls.Add(this.pongTimeoutInput);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.inputNumberOfDataBits);
@@ -299,5 +321,7 @@
 		private System.Windows.Forms.ComboBox inputNumberOfDataBits;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.NumericUpDown pongTimeoutInput;
+		private System.Windows.Forms.CheckBox echoEnabledInput;
+		private System.Windows.Forms.Label label9;
     }
 }

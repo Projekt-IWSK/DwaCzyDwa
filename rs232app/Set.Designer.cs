@@ -154,5 +154,17 @@ namespace rs232app {
                 this["DataIOControl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EchoEnabled {
+            get {
+                return ((bool)(this["EchoEnabled"]));
+            }
+            set {
+                this["EchoEnabled"] = value;
+            }
+        }
     }
 }

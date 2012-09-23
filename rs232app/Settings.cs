@@ -51,6 +51,8 @@ namespace rs232app
 
 			pongTimeoutInput.Value = Set.Default.PingTimeout;
 
+
+			echoEnabledInput.Checked = Set.Default.EchoEnabled;
             #endregion
         }
 
@@ -80,6 +82,7 @@ namespace rs232app
             Set.Default.StopSymbol = (StopSymbol)Enum.Parse(typeof(StopSymbol), inputStopSymbol.SelectedItem.ToString());
 			Set.Default.DataIOControl = (DataIOControl)Enum.Parse(typeof(DataIOControl), inputDataIOControl.SelectedItem.ToString());
 			Set.Default.PingTimeout = (int)pongTimeoutInput.Value;
+			Set.Default.EchoEnabled =echoEnabledInput.Checked;
 			Set.Default.Save();
         }
         #endregion
