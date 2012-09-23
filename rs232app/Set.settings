@@ -27,10 +27,13 @@
       <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="PingRequestMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PING</Value>
     </Setting>
     <Setting Name="PingResponseMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">PONG</Value>
+    </Setting>
+    <Setting Name="DataIOControl" Type="rs232app.AppEnum.DataIOControl" Scope="User">
+      <Value Profile="(Default)">None</Value>
     </Setting>
   </Settings>
 </SettingsFile>

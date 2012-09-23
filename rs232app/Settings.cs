@@ -32,10 +32,6 @@ namespace rs232app
                 inputParity.Items.Add(s);
             inputParity.SelectedItem = Enum.GetName(typeof(Parity), Set.Default.Parity);
 
-            foreach (string s in Enum.GetNames(typeof(Handshake)))
-                inputHandshake.Items.Add(s);
-            inputHandshake.SelectedItem = Enum.GetName(typeof(Handshake), Set.Default.Handshake);
-
             foreach (string s in Enum.GetNames(typeof(StopBits)))
                 inputStopBits.Items.Add(s);
             inputStopBits.SelectedItem = Enum.GetName(typeof(StopBits), Set.Default.StopBits);
@@ -44,9 +40,16 @@ namespace rs232app
 				inputStopSymbol.Items.Add(s);
 			inputStopSymbol.SelectedItem = Enum.GetName(typeof(StopSymbol), Set.Default.StopSymbol);
 
+			foreach (string s in Enum.GetNames(typeof(DataIOControl)))
+				inputDataIOControl.Items.Add(s);
+			inputDataIOControl.SelectedItem = Enum.GetName(typeof(DataIOControl), Set.Default.DataIOControl);
+
             //Initialize textboxes
-            inputDataSpeed.Text = Set.Default.DataSpeed.ToString();
-            inputNumberOfDataBits.Text = Set.Default.NumberOfDataBits.ToString();
+			inputDataSpeed.SelectedItem = Set.Default.DataSpeed.ToString();
+            
+			inputNumberOfDataBits.SelectedItem = Set.Default.NumberOfDataBits.ToString();
+
+			pongTimeoutInput.Value = Set.Default.PingTimeout;
 
             #endregion
         }
@@ -71,12 +74,13 @@ namespace rs232app
         {
             Set.Default.PortName = inputPortSelection.SelectedItem.ToString();
             Set.Default.Parity = (Parity)Enum.Parse(typeof(Parity), inputParity.SelectedItem.ToString());
-            Set.Default.Handshake = (Handshake)Enum.Parse(typeof(Handshake), inputHandshake.SelectedItem.ToString());
             Set.Default.StopBits = (StopBits)Enum.Parse(typeof(StopBits), inputStopBits.SelectedItem.ToString());
-            Set.Default.DataSpeed = Convert.ToInt32(inputDataSpeed.Text);
-            Set.Default.NumberOfDataBits = Convert.ToInt32(inputNumberOfDataBits.Text);
+            Set.Default.DataSpeed = Convert.ToInt32(inputDataSpeed.SelectedItem);
+			Set.Default.NumberOfDataBits = Convert.ToInt32(inputNumberOfDataBits.SelectedItem);
             Set.Default.StopSymbol = (StopSymbol)Enum.Parse(typeof(StopSymbol), inputStopSymbol.SelectedItem.ToString());
-            Set.Default.Save();
+			Set.Default.DataIOControl = (DataIOControl)Enum.Parse(typeof(DataIOControl), inputDataIOControl.SelectedItem.ToString());
+			Set.Default.PingTimeout = (int)pongTimeoutInput.Value;
+			Set.Default.Save();
         }
         #endregion
     }

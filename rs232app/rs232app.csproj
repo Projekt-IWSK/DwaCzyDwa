@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\DataIOControl.cs" />
     <Compile Include="Enum\StopSymbol.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

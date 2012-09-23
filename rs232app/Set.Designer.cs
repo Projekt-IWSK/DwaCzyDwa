@@ -121,7 +121,7 @@ namespace rs232app {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PING")]
         public string PingRequestMessage {
             get {
                 return ((string)(this["PingRequestMessage"]));
@@ -133,13 +133,25 @@ namespace rs232app {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("PONG")]
         public string PingResponseMessage {
             get {
                 return ((string)(this["PingResponseMessage"]));
             }
             set {
                 this["PingResponseMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public global::rs232app.AppEnum.DataIOControl DataIOControl {
+            get {
+                return ((global::rs232app.AppEnum.DataIOControl)(this["DataIOControl"]));
+            }
+            set {
+                this["DataIOControl"] = value;
             }
         }
     }
