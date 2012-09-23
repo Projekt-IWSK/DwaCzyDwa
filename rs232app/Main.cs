@@ -15,7 +15,7 @@ namespace rs232app
 	{
 		#region Members
 		private SerialPort _usedPort;
-		
+
 		private bool isWaitingForPong = false;
 		private bool isWaitingForDSR = false;
 
@@ -41,7 +41,7 @@ namespace rs232app
 			_usedPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 			this.NoResponseFromDevice += new NoResponseHandler(NotifyNoPingResponse);
 			this.NoDtrDsrResponseFromDevice += new NoResponseHandler(NotifyNoResponseFromDevice);
-			
+
 			//Tworzenie timerów.
 			pingResponseTimeoutTimer = new System.Timers.Timer();
 			pingResponseTimeoutTimer.Elapsed += new System.Timers.ElapsedEventHandler(pingTimer_Elapsed);
@@ -54,11 +54,11 @@ namespace rs232app
 			//new Settings(this).ShowDialog(this);
 		}
 
-		#region User Interface Events	
+		#region User Interface Events
 		/// <summary>
 		/// Wciśnięty został przycisk edycji ustawień.
 		/// </summary>
-		void menuOptions_Click(object sender, EventArgs e)
+		void options_Click(object sender, EventArgs e)
 		{
 			new Settings(this).ShowDialog(this);
 		}
@@ -88,10 +88,21 @@ namespace rs232app
 			inputToSendData.Text = "";
 		}
 
+		void insertHexValue_Click(object sender, EventArgs e)
+		{
+			HexPrompt prop = new HexPrompt();
+			prop.ShowDialog();
+			byte? a = prop.b;
+			if (a != null)
+			{
+				inputToSendData.Text += (char)a;
+			}
+		}
+
 		/// <summary>
 		/// Wciśnięty został przycisk czyszczenia okna.
 		/// </summary>
-		void clean_Click(object sender, EventArgs e)
+		private void clean_Click(object sender, EventArgs e)
 		{
 			outputRecivedData.Text = "";
 		}
@@ -198,7 +209,7 @@ namespace rs232app
 		void sendTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
 			sendTimeoutTimer.Stop();
-			
+
 			//Czy ciągle czekamy na gotowośćdrugiego urządzenia?
 			if (isWaitingForDSR)
 			{
@@ -209,7 +220,7 @@ namespace rs232app
 		#endregion
 
 		#region Notifications
-		
+
 		#region Ping notifications
 		void NotifyPingRequestSend()
 		{
@@ -223,8 +234,8 @@ namespace rs232app
 			isWaitingForPong = false;
 			pingResponseTimeoutTimer.Stop();
 			NotifyIOMessageOnOutput("PONG", true);
-		}		
-		
+		}
+
 		void NotifyPingRequestReceive()
 		{
 			NotifyIOMessageOnOutput("PING", true);
@@ -241,14 +252,14 @@ namespace rs232app
 			NotifyErrorOnOutput("BRAK ODPOWIEDZI NA PING");
 		}
 		#endregion
-		
+
 		#region Message notifications
 		void NotifyNoResponseFromDevice()
 		{
 			isWaitingForDSR = false;
 			NotifyErrorOnOutput("Urządzenie nie jest gotowe do odbioru (timeout)");
 		}
-		
+
 		void NotifyMessageSend(string msg)
 		{
 			NotifyIOMessageOnOutput(msg, false);
@@ -351,7 +362,7 @@ namespace rs232app
 			}
 		}
 		#endregion
-		
+
 		void SendMessage(string msg)
 		{
 			//Dla trybu DTR_DSR.

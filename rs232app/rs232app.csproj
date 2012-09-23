@@ -48,6 +48,13 @@
   <ItemGroup>
     <Compile Include="Enum\DataIOControl.cs" />
     <Compile Include="Enum\StopSymbol.cs" />
+    <Compile Include="Forms\Prompt.cs" />
+    <Compile Include="HexPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HexPrompt.Designer.cs">
+      <DependentUpon>HexPrompt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +74,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Set.settings</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HexPrompt.resx">
+      <DependentUpon>HexPrompt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +88,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
@@ -97,7 +108,9 @@
       <LastGenOutput>Set.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Options.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
