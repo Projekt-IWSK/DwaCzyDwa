@@ -10,6 +10,7 @@ namespace rs232app.AppEnum
 		None = 0,
 		CR = 0x0D,
 		LF = 0x0A,
-		CRLF = 0x0D0A
+		CRLF = 0x0D0A,
+		Custom
 	}
 }

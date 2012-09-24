@@ -166,5 +166,17 @@ namespace rs232app {
                 this["EchoEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StopSymbolString {
+            get {
+                return ((string)(this["StopSymbolString"]));
+            }
+            set {
+                this["StopSymbolString"] = value;
+            }
+        }
     }
 }

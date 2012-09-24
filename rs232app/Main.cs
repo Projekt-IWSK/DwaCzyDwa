@@ -327,21 +327,7 @@ namespace rs232app
 				_usedPort.BaudRate = Set.Default.DataSpeed;
 				_usedPort.DataBits = Set.Default.NumberOfDataBits;
 
-				switch ((Set.Default.StopSymbol))
-				{
-					case StopSymbol.CR:
-						_usedPort.NewLine = "\r";
-						break;
-					case StopSymbol.LF:
-						_usedPort.NewLine = "\n";
-						break;
-					case StopSymbol.CRLF:
-						_usedPort.NewLine = "\r\n";
-						break;
-					case StopSymbol.None:
-						_usedPort.NewLine = "\0";
-						break;
-				}
+				_usedPort.NewLine = Set.Default.StopSymbolString.Length != 0 ? Set.Default.StopSymbolString : "\0";
 
 				switch ((Set.Default.DataIOControl))
 				{

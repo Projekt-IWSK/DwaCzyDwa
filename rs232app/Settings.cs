@@ -51,8 +51,8 @@ namespace rs232app
 
 			pongTimeoutInput.Value = Set.Default.PingTimeout;
 
-
 			echoEnabledInput.Checked = Set.Default.EchoEnabled;
+			stopSymbolStringInput.Text = Set.Default.StopSymbolString;
             #endregion
         }
 
@@ -83,8 +83,48 @@ namespace rs232app
 			Set.Default.DataIOControl = (DataIOControl)Enum.Parse(typeof(DataIOControl), inputDataIOControl.SelectedItem.ToString());
 			Set.Default.PingTimeout = (int)pongTimeoutInput.Value;
 			Set.Default.EchoEnabled =echoEnabledInput.Checked;
+			switch ((Set.Default.StopSymbol))
+			{
+				case StopSymbol.CR:
+					Set.Default.StopSymbolString = "\r";
+					break;
+				case StopSymbol.LF:
+					Set.Default.StopSymbolString = "\n";
+					break;
+				case StopSymbol.CRLF:
+					Set.Default.StopSymbolString = "\r\n";
+					break;
+				case StopSymbol.None:
+					Set.Default.StopSymbolString = "\0";
+					break;
+				case StopSymbol.Custom:
+					Set.Default.StopSymbolString = stopSymbolStringInput.Text;
+					break;
+			}
 			Set.Default.Save();
         }
         #endregion
+
+		private void hex_Click(object sender, EventArgs e)
+		{
+			if (stopSymbolStringInput.TextLength < 2)
+			{
+				HexPrompt prop = new HexPrompt();
+				prop.ShowDialog();
+				byte? a = prop.b;
+				if (a != null)
+				{
+					stopSymbolStringInput.Text += (char)a;
+				}
+			}
+		}
+
+		private void inputStopSymbol_SelectedValueChanged(object sender, EventArgs e)
+		{
+			ComboBox box = sender as ComboBox;
+
+			stopSymbolStringInput.Enabled = box.SelectedItem.Equals(StopSymbol.Custom.ToString());
+			hex.Enabled = stopSymbolStringInput.Enabled;
+		}
     }
 }

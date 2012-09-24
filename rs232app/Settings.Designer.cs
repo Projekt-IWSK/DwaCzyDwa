@@ -48,6 +48,8 @@
 			this.pongTimeoutInput = new System.Windows.Forms.NumericUpDown();
 			this.echoEnabledInput = new System.Windows.Forms.CheckBox();
 			this.label9 = new System.Windows.Forms.Label();
+			this.stopSymbolStringInput = new System.Windows.Forms.TextBox();
+			this.hex = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pongTimeoutInput)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -150,8 +152,9 @@
 			this.inputStopSymbol.FormattingEnabled = true;
 			this.inputStopSymbol.Location = new System.Drawing.Point(152, 145);
 			this.inputStopSymbol.Name = "inputStopSymbol";
-			this.inputStopSymbol.Size = new System.Drawing.Size(122, 21);
+			this.inputStopSymbol.Size = new System.Drawing.Size(72, 21);
 			this.inputStopSymbol.TabIndex = 20;
+			this.inputStopSymbol.SelectedValueChanged += new System.EventHandler(this.inputStopSymbol_SelectedValueChanged);
 			// 
 			// inputDataIOControl
 			// 
@@ -267,11 +270,31 @@
 			this.label9.TabIndex = 29;
 			this.label9.Text = "Echo:";
 			// 
+			// stopSymbolStringInput
+			// 
+			this.stopSymbolStringInput.Location = new System.Drawing.Point(230, 145);
+			this.stopSymbolStringInput.MaxLength = 2;
+			this.stopSymbolStringInput.Name = "stopSymbolStringInput";
+			this.stopSymbolStringInput.Size = new System.Drawing.Size(20, 20);
+			this.stopSymbolStringInput.TabIndex = 30;
+			// 
+			// hex
+			// 
+			this.hex.Image = global::rs232app.Properties.Resources._1348483947_text_x_hex;
+			this.hex.Location = new System.Drawing.Point(256, 145);
+			this.hex.Name = "hex";
+			this.hex.Size = new System.Drawing.Size(18, 20);
+			this.hex.TabIndex = 31;
+			this.hex.UseVisualStyleBackColor = true;
+			this.hex.Click += new System.EventHandler(this.hex_Click);
+			// 
 			// Settings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(286, 275);
+			this.Controls.Add(this.hex);
+			this.Controls.Add(this.stopSymbolStringInput);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.echoEnabledInput);
 			this.Controls.Add(this.pongTimeoutInput);
@@ -323,5 +346,7 @@
 		private System.Windows.Forms.NumericUpDown pongTimeoutInput;
 		private System.Windows.Forms.CheckBox echoEnabledInput;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.TextBox stopSymbolStringInput;
+		private System.Windows.Forms.Button hex;
     }
 }

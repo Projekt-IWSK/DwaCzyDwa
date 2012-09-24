@@ -60,6 +60,13 @@ namespace rs232app.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _1348483947_text_x_hex {
+            get {
+                object obj = ResourceManager.GetObject("1348483947_text-x-hex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Options {
             get {
                 object obj = ResourceManager.GetObject("Options", resourceCulture);

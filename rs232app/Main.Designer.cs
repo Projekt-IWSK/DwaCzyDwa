@@ -210,6 +210,7 @@
 			this.ClientSize = new System.Drawing.Size(645, 546);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.toolStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Main";
 			this.Text = "RS232";
 			this.splitContainer1.Panel1.ResumeLayout(false);
