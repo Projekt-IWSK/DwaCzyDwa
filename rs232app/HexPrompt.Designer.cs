@@ -38,20 +38,20 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(12, 15);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(61, 13);
+			this.label1.Size = new System.Drawing.Size(87, 13);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Kod znaku:";
+			this.label1.Text = "Kod znaku (hex):";
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(79, 12);
+			this.textBox1.Location = new System.Drawing.Point(105, 12);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(39, 20);
 			this.textBox1.TabIndex = 1;
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(24, 48);
+			this.button1.Location = new System.Drawing.Point(42, 52);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 2;
@@ -63,13 +63,13 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(125, 87);
+			this.ClientSize = new System.Drawing.Size(164, 87);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "HexPrompt";
-			this.Text = "s";
+			this.Text = "Wstaw znak";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

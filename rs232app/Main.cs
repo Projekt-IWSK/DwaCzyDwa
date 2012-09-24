@@ -34,9 +34,15 @@ namespace rs232app
 		public Main()
 		{
 			InitializeComponent();
+			
+			//Dziwny fix dla outputRecivedDataHex - bez tego program lubi się wieszać.
+			NotifyMessageReceive("INIT");
+			this.outputRecivedDataHex.Clear();
+			this.outputRecivedData.Clear();
+
 			//Obiekt reprezentujący port COM.
 			_usedPort = new SerialPort();
-
+			_usedPort.Encoding = Encoding.GetEncoding(28591);
 			//Podpinanie custom eventów etc.
 			_usedPort.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
 			this.NoResponseFromDevice += new NoResponseHandler(NotifyNoPingResponse);
@@ -67,7 +73,7 @@ namespace rs232app
 		/// Wciśnięty został przycisk pingowania. Założyłem, że można wysłać tylko jeden ping (chyba
 		/// że odebrano ponga lub upłynął czas oczekiwania).
 		/// </summary>		
-		void intputPing_Click(object sender, EventArgs e)
+		private void ping_Click(object sender, EventArgs e)
 		{
 			//Czy czekamy na ponga?
 			if (!isWaitingForPong)
@@ -105,6 +111,7 @@ namespace rs232app
 		private void clean_Click(object sender, EventArgs e)
 		{
 			outputRecivedData.Text = "";
+			outputRecivedDataHex.Text = "";
 		}
 
 		/// <summary>
@@ -275,15 +282,24 @@ namespace rs232app
 			if (isInput)
 			{
 				outputRecivedData.SelectionColor = System.Drawing.Color.Blue;
+				outputRecivedDataHex.SelectionColor = System.Drawing.Color.Blue;		
 				this.outputRecivedData.AppendText("(receive):");
+				this.outputRecivedDataHex.AppendText("(receive):");
 			}
 			else
 			{
 				outputRecivedData.SelectionColor = System.Drawing.Color.Green;
+				outputRecivedDataHex.SelectionColor = System.Drawing.Color.Green;
 				this.outputRecivedData.AppendText("(send):");
+				this.outputRecivedDataHex.AppendText("(send):");
 			}
 			outputRecivedData.SelectionColor = System.Drawing.Color.Black;
+			outputRecivedDataHex.SelectionColor = System.Drawing.Color.Black;
+			
 			this.outputRecivedData.AppendText(msg + Environment.NewLine);
+			byte[] byteArray =  Encoding.GetEncoding(28591).GetBytes(msg);
+			string hex = BitConverter.ToString(byteArray);
+			this.outputRecivedDataHex.AppendText(hex + Environment.NewLine);
 		}
 
 		void NotifyErrorOnOutput(string msg)
@@ -301,7 +317,7 @@ namespace rs232app
 		{
 			this.Text = "RS232";
 			inputSend.Enabled = true;
-			intputPing.Enabled = true;
+			ping.Enabled = true;
 			try
 			{
 				_usedPort.Close();
@@ -358,7 +374,7 @@ namespace rs232app
 				NotifyErrorOnOutput("Ustawienia są nieprawidłowe");
 				NotifyErrorOnOutput(ex.Message);
 				inputSend.Enabled = false;
-				intputPing.Enabled = false;
+				ping.Enabled = false;
 			}
 		}
 		#endregion
